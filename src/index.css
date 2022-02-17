@@ -1,0 +1,59 @@
+/* Custom Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto:wght@300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-poppins bg-primaryLight;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-roboto;
+  }
+}
+
+@layer components {
+  .input-box {
+    @apply w-full p-2 border border-primaryLight rounded placeholder:text-primary placeholder:text-xs text-xs focus:outline-none focus:border-dangerLight focus:ring-1 focus:ring-dangerLight;
+  }
+  .success {
+    @apply focus:border-successLight focus:ring-successLight;
+  }
+
+  .btn-primary {
+    @apply bg-secondary text-primaryLight py-1.5 px-6 rounded font-semibold;
+  }
+}
+
+@layer utilities {
+  .dextopScreen {
+    display: grid;
+    grid-template: 70px 1fr 70px / repeat(5, 1fr);
+    grid-template-areas: 's h h h h' 's c c c c' 's f f f f';
+  }
+  .mediumScreen {
+    display: grid;
+    grid-template: 70px 1fr 70px / repeat(6, 1fr);
+    grid-template-areas: 'h h h h h h' 'c c c c c c' 'f f f f f f';
+  }
+  .header {
+    grid-area: h;
+  }
+  .sidebar {
+    grid-area: s;
+  }
+  .content {
+    grid-area: c;
+  }
+  .footer {
+    grid-area: f;
+  }
+}
