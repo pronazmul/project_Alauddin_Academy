@@ -1,8 +1,7 @@
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { Link } from 'react-router-dom'
 
-export default function DropDown({ data, children }) {
+export default function DropDownButton({ setActionType, data, children }) {
   return (
     <Menu as='div' className='relative inline-block'>
       <Menu.Button>{children}</Menu.Button>
@@ -21,8 +20,8 @@ export default function DropDown({ data, children }) {
               data.map((item, index) => (
                 <Menu.Item key={index}>
                   {({ active }) => (
-                    <Link
-                      to={item.sublink}
+                    <button
+                      onClick={() => setActionType(item.title)}
                       className={`${
                         active ? 'bg-primary  text-white' : 'text-primary'
                       } flex rounded-md items-center w-full p-2 text-sm space-x-4`}
@@ -31,7 +30,7 @@ export default function DropDown({ data, children }) {
                         <item.Icon className='h-5 w-5' />
                       </span>
                       <span className='capitalize'>{item.title}</span>
-                    </Link>
+                    </button>
                   )}
                 </Menu.Item>
               ))}

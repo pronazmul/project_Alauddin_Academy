@@ -372,19 +372,19 @@ export const userDropDownData = [
 export const tableAction = [
   {
     id: 1,
-    title: 'View',
+    title: 'view',
     sublink: '/',
     Icon: EyeIcon,
   },
   {
     id: 2,
-    title: 'Edit',
+    title: 'edit',
     sublink: '/',
     Icon: PencilIcon,
   },
   {
     id: 3,
-    title: 'Delete',
+    title: 'delete',
     sublink: '/',
     Icon: TrashIcon,
   },

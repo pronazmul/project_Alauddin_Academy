@@ -2,17 +2,47 @@ import { HandIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
 import { tableAction } from '../utilities/data'
 import { filterTable } from '../utilities/helperFunctions'
-import DropDown from './DropDown'
 import SearchBox from './SearchBox'
 import Pagination from './Pagination'
 import EntitiesDropDown from './EntitiesDropDown'
 import { AvatarByLetter } from './AvatarByLetter'
+import Modal from './Modal'
+import DropDownButton from './DropDownButtons'
+import StudentProfile from '../sections/StudentProfile'
+import EditStudent from '../sections/EditStudent'
+import DeleteStudent from '../sections/DeleteStudent'
 
 export default function DataTable({ data, columns }) {
+  // Modal Options
+  const [viewModal, setViewModal] = useState(false)
+  const [editModal, setEditModal] = useState(false)
+  const [deleteModal, setDeleteModal] = useState(false)
+  const [activeStudent, setActiveStudent] = useState(null)
+  const modalCloser = () => {
+    setViewModal(false)
+    setEditModal(false)
+    setDeleteModal(false)
+  }
+  const modalSwithcer = (type) => {
+    switch (type) {
+      case 'view':
+        setViewModal(true)
+        break
+      case 'edit':
+        setEditModal(true)
+        break
+      case 'delete':
+        setDeleteModal(true)
+        break
+      default:
+        return false
+    }
+  }
+
+  // Filtering the table data
   const [search, setSearch] = useState('')
   const [entities, setEntities] = useState(10)
   const [currentPage, setCurrentPage] = useState(1)
-
   const { filteredData, pages, page, totalData, startAt } = filterTable(
     search,
     currentPage,
@@ -22,6 +52,21 @@ export default function DataTable({ data, columns }) {
 
   return (
     <>
+      {viewModal && (
+        <Modal show={viewModal} modalHandler={modalCloser}>
+          <StudentProfile modalHandler={modalCloser} id={activeStudent} />
+        </Modal>
+      )}
+      {editModal && (
+        <Modal show={editModal} modalHandler={modalCloser}>
+          <EditStudent id={activeStudent} />
+        </Modal>
+      )}
+      {deleteModal && (
+        <Modal show={deleteModal} modalHandler={modalCloser}>
+          <DeleteStudent modalHandler={modalCloser} id={activeStudent} />
+        </Modal>
+      )}
       <div className='bg-primaryLight bg-opacity-5 px-4 py-6 grid grid-cols-6'>
         <div className='col-span-4'>
           <SearchBox
@@ -65,10 +110,16 @@ export default function DataTable({ data, columns }) {
                   <td className='py-4'>{student[column]}</td>
                 )
               )}
-              <td className='py-4'>
-                <DropDown data={tableAction}>
+              <td
+                className='py-4'
+                onClick={() => setActiveStudent(student._id)}
+              >
+                <DropDownButton
+                  setActionType={modalSwithcer}
+                  data={tableAction}
+                >
                   <HandIcon className='h-9 w-9 p-2 bg-primaryLight text-primary rounded-full' />
-                </DropDown>
+                </DropDownButton>
               </td>
             </tr>
           ))}

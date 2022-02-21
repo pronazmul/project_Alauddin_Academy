@@ -1,15 +1,14 @@
 import { Dialog, Transition } from '@headlessui/react'
 import React, { Fragment } from 'react'
 
-export default function Modal() {
-  const [show, setShow] = React.useState(false)
+export default function Modal({ show, modalHandler, children }) {
   return (
     <>
       <Transition appear show={show}>
         <Dialog
           as='div'
           className='fixed inset-0 z-10 overflow-y-auto'
-          onClose={() => setShow(false)}
+          onClose={modalHandler}
         >
           <div className='min-h-screen px-4 text-center'>
             <Transition.Child
@@ -40,21 +39,7 @@ export default function Modal() {
               leaveTo='opacity-0 scale-95'
             >
               <div className='inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl space-y-3'>
-                <div className='bg-green-400 w-16 h-16 rounded-full mx-auto mb-6 text-white relative text-4xl'>
-                  <i className='fas fa-check absolute inset-0 flex items-center justify-center'></i>
-                </div>
-                <h3 className='text-xl font-black text-gray-600 text-center'>
-                  Payment Successfull
-                </h3>
-                <div className='w-full flex justify-center border-none'>
-                  <button
-                    to='/'
-                    className='w-3/4 rounded bg-primary text-white py-2 font-semibold text-sm text-center '
-                    onClose={() => setShow(false)}
-                  >
-                    Continue Shopping
-                  </button>
-                </div>
+                {children}
               </div>
             </Transition.Child>
           </div>

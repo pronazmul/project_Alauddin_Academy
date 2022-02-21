@@ -12,8 +12,8 @@ export default function Header() {
       <ProfileDropDown>
         <div className='flex items-center cursor-pointer'>
           <img
-            className='h-10 w-10'
-            src={user?.avatar ? user.avatar : './images/avatar.png'}
+            className='h-10 w-10 rounded-full'
+            src={user.avatar ? user.avatar : './images/avatar.png'}
             alt='Admin profie'
           />
           <p className='text-xs text-secondary font-semibold pl-1'>

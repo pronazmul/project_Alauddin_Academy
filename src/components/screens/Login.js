@@ -18,9 +18,12 @@ const Login = () => {
       password: '',
     },
     validationSchema: LoginSchema,
-    onSubmit: (values) => {
+    onSubmit: (values, actions) => {
       login(values)
-      if (success) toast.success(success)
+      if (success) {
+        toast.success(success)
+        actions.resetForm()
+      }
       if (error) toast.error(error)
     },
   })
