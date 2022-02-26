@@ -26,7 +26,7 @@ export default function StudentProfile({ modalHandler, id }) {
   }, [])
 
   return (
-    <>
+    <div className='bg-white px-4 py-6'>
       {loading ? (
         <div className='flex justify-center items-center'>
           <div className='animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-active'></div>
@@ -44,7 +44,7 @@ export default function StudentProfile({ modalHandler, id }) {
               <AvatarByLetter word={student.name} />
             </div>
           )}
-          <table class='table-auto min-w-full divide-y divide-gray-200'>
+          <table class='table-auto min-w-full divide-y divide-gray-200 rounded-2xl overflow-hidden'>
             <tbody className='divide-y divide-gray-200 bg-primaryLight bg-opacity-5'>
               <tr>
                 <td className='text-sm font-bold text-secondary'>Name</td>
@@ -133,7 +133,7 @@ export default function StudentProfile({ modalHandler, id }) {
       >
         Close
       </button>
-    </>
+    </div>
   )
 }
 

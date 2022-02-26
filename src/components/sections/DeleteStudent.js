@@ -21,7 +21,7 @@ export default function DeleteStudent({ modalHandler, id }) {
   }
 
   return (
-    <div className='space-y-3'>
+    <div className='space-y-3 div bg-white px-4 py-6'>
       <XCircleIcon className='text-danger h-16 w-16 mx-auto' />
       <h1 className='text-xl font-bold text-primary'>Are You Sure?</h1>
       <p className='text-sm text-secondary'>
