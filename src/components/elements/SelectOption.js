@@ -26,6 +26,7 @@ export default function SelectOption({
         onChange={handleChange}
         name={name}
         placeholder={`Enter your ${name}`}
+        value={values[name]}
         className={`input-box ${values[name] && !errors[name] && 'success'}`}
         required={required}
       >

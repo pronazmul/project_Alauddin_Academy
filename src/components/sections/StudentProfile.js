@@ -44,7 +44,7 @@ export default function StudentProfile({ modalHandler, id }) {
               <AvatarByLetter word={student.name} />
             </div>
           )}
-          <table class='table-auto min-w-full divide-y divide-gray-200 rounded-2xl overflow-hidden'>
+          <table class='table-auto min-w-full divide-y divide-gray-200 rounded-2xl overflow'>
             <tbody className='divide-y divide-gray-200 bg-primaryLight bg-opacity-5'>
               <tr>
                 <td className='text-sm font-bold text-secondary'>Name</td>

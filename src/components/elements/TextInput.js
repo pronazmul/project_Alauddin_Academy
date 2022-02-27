@@ -26,6 +26,7 @@ export default function TextInput({
         onChange={handleChange}
         type={type}
         name={name}
+        value={values[name]}
         placeholder={`Enter your ${name}`}
         className={`input-box ${values[name] && !errors[name] && 'success'}`}
         required={required}

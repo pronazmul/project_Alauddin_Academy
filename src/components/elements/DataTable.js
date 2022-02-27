@@ -59,7 +59,7 @@ export default function DataTable({ data, columns }) {
       )}
       {editModal && (
         <Modal show={editModal} modalHandler={modalCloser}>
-          <EditStudent id={activeStudent} />
+          <EditStudent modalHandler={modalCloser} id={activeStudent} />
         </Modal>
       )}
       {deleteModal && (

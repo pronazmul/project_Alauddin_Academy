@@ -34,6 +34,7 @@ export default function RadioInput({
                 value={value}
                 className='text-active focus:ring-0 rounded-md w-5 h-5'
                 required={required}
+                checked={values[name] === value}
               />
               <label
                 for={value}
