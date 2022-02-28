@@ -111,7 +111,7 @@ export default function AddStudent() {
           <div className='col-span-full md:col-span-1'>
             <RadioInput
               name='gender'
-              options={['male', 'female', 'other']}
+              options={['male', 'female']}
               handleChange={handleChange}
               values={values}
               errors={errors}

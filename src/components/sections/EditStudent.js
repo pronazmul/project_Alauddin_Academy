@@ -7,6 +7,7 @@ import { toast } from 'react-toastify'
 import React from 'react'
 import axios from 'axios'
 import { truthyValuesFromObject } from '../utilities/helperFunctions'
+import ImageInput from '../elements/ImageInput'
 
 export default function EditStudent({ modalHandler, id }) {
   const [loading, setLoading] = React.useState(false)
@@ -51,6 +52,7 @@ export default function EditStudent({ modalHandler, id }) {
     }
     fechData()
   }, [])
+
   return (
     <>
       <div className='bg-primary rounded px-4 py-6'>
@@ -241,11 +243,14 @@ export default function EditStudent({ modalHandler, id }) {
                   />
                 </div>
                 <div className='col-span-full'>
+                  <ImageInput values={student} id={id} />
+                </div>
+                <div className='col-span-full'>
                   <button
                     className='btn-primary bg-active text-white hover:bg-opacity-80  text-sm transition duration-300 ease-in-out'
                     type='submit'
                   >
-                    Update
+                    Update Student
                   </button>
                 </div>
               </form>

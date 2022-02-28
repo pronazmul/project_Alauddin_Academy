@@ -9,6 +9,8 @@ import Loader from './../elements/Loader'
 export default function AllStudents() {
   const [loading, setLoading] = React.useState(false)
   const [students, setStudents] = React.useState([])
+  const [reloadStudent, setreloadStudent] = React.useState(false)
+  const studentReloader = () => setreloadStudent(!reloadStudent)
 
   React.useEffect(() => {
     async function fechData() {
@@ -26,7 +28,7 @@ export default function AllStudents() {
       }
     }
     fechData()
-  }, [])
+  }, [reloadStudent])
 
   return (
     <div className='p-4'>
@@ -56,6 +58,7 @@ export default function AllStudents() {
           students && (
             <DataTable
               data={students}
+              studentReloader={studentReloader}
               columns={[
                 'avatar',
                 'name',

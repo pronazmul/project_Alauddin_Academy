@@ -12,16 +12,18 @@ import StudentProfile from '../sections/StudentProfile'
 import EditStudent from '../sections/EditStudent'
 import DeleteStudent from '../sections/DeleteStudent'
 
-export default function DataTable({ data, columns }) {
+export default function DataTable({ data, columns, studentReloader }) {
   // Modal Options
   const [viewModal, setViewModal] = useState(false)
   const [editModal, setEditModal] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false)
   const [activeStudent, setActiveStudent] = useState(null)
+
   const modalCloser = () => {
     setViewModal(false)
     setEditModal(false)
     setDeleteModal(false)
+    studentReloader()
   }
   const modalSwithcer = (type) => {
     switch (type) {

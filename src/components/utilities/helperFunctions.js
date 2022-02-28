@@ -89,3 +89,30 @@ export const truthyValuesFromObject = (object) => {
       return { ...state, [value]: object[value] }
     }, {})
 }
+
+/**
+ * @description - Image Validator Function
+ * @param {file}  Input File to check
+ * @param {size in Byte}  File Size to Check
+ * @param {size in aray}  File Format to be checked
+ * @returns {boolean}  If True return Boolean else through error Message
+ */
+export const filterImage = (
+  file,
+  fileSize = 1000000,
+  fileFormat = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp']
+) => {
+  if (file) {
+    if (fileFormat.includes(file.type)) {
+      if (file.size < fileSize) {
+        return true
+      } else {
+        throw new Error('Image is Too Large!')
+      }
+    } else {
+      throw new Error('Invalid Image Format!')
+    }
+  } else {
+    throw new Error('No file selected')
+  }
+}
