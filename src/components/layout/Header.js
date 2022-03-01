@@ -22,7 +22,7 @@ export default function Header() {
           <div className='flex items-center cursor-pointer'>
             <img
               className='h-10 w-10 rounded-full'
-              src={user.avatar ? user.avatar : './images/avatar.png'}
+              src={user.avatar ? user.avatar : './images/aladdin.jpeg'}
               alt='Admin profie'
             />
             <p className='text-xs text-secondary font-semibold pl-1'>

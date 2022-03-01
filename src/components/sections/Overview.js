@@ -7,8 +7,8 @@ export default function Overview() {
           <p className='text-secondaryLight mt-1'>Alauddin's Academy</p>
           <div className='mt-7 flex space-x-6 items-center'>
             <img
-              className='h-20'
-              src='./images/avatar.png'
+              className='h-20 rounded-full object-contain'
+              src='./images/aladdin.jpeg'
               alt='Admin profie'
             />
             <div className='text-secondaryLight'>
