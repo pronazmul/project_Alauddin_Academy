@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
       setLoading(true)
       let config = {
         method: 'post',
-        url: 'https://alauddin-academy.herokuapp.com/api/v1/users/login',
+        url: 'https://alauddinapi.pronazmul.com/api/v1/users/login',
         headers: {
           'Content-Type': 'application/json',
         },

@@ -19,7 +19,7 @@ export default function EditStudent({ modalHandler, id }) {
       let truthyValues = truthyValuesFromObject(values)
       let config = {
         method: 'put',
-        url: `https://alauddin-academy.herokuapp.com/api/v1/students/${id}`,
+        url: `https://alauddinapi.pronazmul.com/api/v1/students/${id}`,
         headers: {
           'Content-Type': 'application/json',
         },

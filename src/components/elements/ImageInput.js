@@ -22,7 +22,7 @@ export default function ImageInput({ values, id }) {
         data.append('avatar', file)
         let config = {
           method: 'post',
-          url: `https://alauddin-academy.herokuapp.com/api/v1/students/${id}/upload`,
+          url: `https://alauddinapi.pronazmul.com/api/v1/students/${id}/upload`,
           headers: {
             'content-type': 'multipart/form-data',
           },

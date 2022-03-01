@@ -8,7 +8,7 @@ export default function DeleteStudent({ modalHandler, id }) {
     try {
       setLoading(true)
       await axios.delete(
-        `https://alauddin-academy.herokuapp.com/api/v1/students/${id}`
+        `https://alauddinapi.pronazmul.com/api/v1/students/${id}`
       )
       setLoading(false)
       toast.success('Student Deleted Successfully')

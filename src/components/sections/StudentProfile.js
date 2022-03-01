@@ -12,7 +12,7 @@ export default function StudentProfile({ modalHandler, id }) {
       try {
         setLoading(true)
         let { data } = await axios.get(
-          `https://alauddin-academy.herokuapp.com/api/v1/students/${id}`
+          `https://alauddinapi.pronazmul.com/api/v1/students/${id}`
         )
         setStudent(data.data)
         setLoading(false)

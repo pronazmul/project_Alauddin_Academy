@@ -17,7 +17,7 @@ export default function AllStudents() {
       try {
         setLoading(true)
         let { data } = await axios.get(
-          'https://alauddin-academy.herokuapp.com/api/v1/students'
+          'https://alauddinapi.pronazmul.com/api/v1/students'
         )
         console.log(data)
         setStudents(data.data)
