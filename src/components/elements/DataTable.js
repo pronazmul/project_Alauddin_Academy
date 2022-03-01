@@ -81,7 +81,7 @@ export default function DataTable({ data, columns, studentReloader }) {
           <EntitiesDropDown value={entities} setValue={setEntities} />
         </div>
       </div>
-      <table className='min-w-full divide-y divide-gray-200'>
+      <table className=' divide-y divide-gray-200 min-w-lg overflow-y-scroll'>
         <thead className='font-black text-left text-xs uppercase tracking-wider'>
           <tr className={`grid grid-cols-7 text-center`}>
             {columns.map((column) => (

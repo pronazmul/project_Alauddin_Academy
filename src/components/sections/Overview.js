@@ -17,7 +17,11 @@ export default function Overview() {
             </div>
           </div>
         </div>
-        <img className='h-48' src='./images/overview.svg' alt='Overview' />
+        <img
+          className='h-48 sm:block hidden'
+          src='./images/overview.svg'
+          alt='Overview'
+        />
       </div>
     </div>
   )
